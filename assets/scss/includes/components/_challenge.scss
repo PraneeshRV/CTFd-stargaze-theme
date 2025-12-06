@@ -1,0 +1,83 @@
+/* Challenge styles - Stargaze Theme
+-------------------------------------------------- */
+
+.challenge-desc {
+  overflow-wrap: anywhere;
+
+  img {
+    max-width: 100%;
+  }
+}
+
+[data-bs-theme="light"] .challenge-button {
+  border: none;
+  box-shadow: 0 0 15px var(--bs-secondary);
+
+  &.challenge-solved {
+    background-color: #29c830;
+
+    &:hover {
+      background-color: #37d63e;
+    }
+  }
+}
+
+/* === DARK THEME - TRANSPARENT WITH GLOWING SOLVED === */
+[data-bs-theme="dark"] .challenge-button {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background-color: transparent;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(204, 255, 0, 0.3);
+    box-shadow: 0 4px 20px rgba(204, 255, 0, 0.1);
+  }
+
+  /* === SOLVED CHALLENGE - GREEN GLOW EFFECT === */
+  &.challenge-solved {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.2) 0%, rgba(22, 163, 74, 0.15) 100%);
+    border: 1px solid rgba(34, 197, 94, 0.5);
+    box-shadow: 
+      0 0 20px rgba(34, 197, 94, 0.3),
+      0 0 40px rgba(34, 197, 94, 0.15),
+      inset 0 0 20px rgba(34, 197, 94, 0.05);
+    animation: solvedPulse 3s ease-in-out infinite;
+
+    &:hover {
+      background: linear-gradient(135deg, rgba(34, 197, 94, 0.3) 0%, rgba(22, 163, 74, 0.25) 100%);
+      border-color: rgba(34, 197, 94, 0.7);
+      box-shadow: 
+        0 0 30px rgba(34, 197, 94, 0.5),
+        0 0 60px rgba(34, 197, 94, 0.25),
+        inset 0 0 30px rgba(34, 197, 94, 0.1);
+      transform: translateY(-3px);
+    }
+
+    /* Green text for solved challenge name */
+    p {
+      color: #86efac;
+      text-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+    }
+
+    /* Green glow for points */
+    span {
+      color: #22c55e;
+      font-weight: 600;
+    }
+  }
+}
+
+/* Pulse animation for solved challenges */
+@keyframes solvedPulse {
+  0%, 100% {
+    box-shadow: 
+      0 0 20px rgba(34, 197, 94, 0.3),
+      0 0 40px rgba(34, 197, 94, 0.15);
+  }
+  50% {
+    box-shadow: 
+      0 0 30px rgba(34, 197, 94, 0.4),
+      0 0 60px rgba(34, 197, 94, 0.2);
+  }
+}
