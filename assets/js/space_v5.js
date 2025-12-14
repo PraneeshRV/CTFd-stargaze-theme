@@ -130,13 +130,6 @@ document.addEventListener('DOMContentLoaded', function () {
     document.addEventListener('mouseenter', () => isHovering = true);
     document.addEventListener('mouseleave', () => isHovering = false);
 
-    let mouseX = 0;
-    let mouseY = 0;
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX - width / 2;
-        mouseY = e.clientY - height / 2;
-    });
-
     function drawNebula() {
         const gradient = ctx.createRadialGradient(width / 2, height / 2, 0, width / 2, height / 2, width);
         gradient.addColorStop(0, 'rgba(20, 20, 40, 0.05)'); // Very subtle
@@ -209,9 +202,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Draw and update regular stars
         stars.forEach(star => {
-            // Subtle drift (time-based)
-            star.x += (star.vx + (mouseX * 0.0001)) * speedFactor; // Extremely subtle movement
-            star.y += (star.vy + (mouseY * 0.0001)) * speedFactor; // Extremely subtle movement
+            // Subtle random drift only - NO mouse following
+            star.x += star.vx * speedFactor;
+            star.y += star.vy * speedFactor;
+
+            // Occasionally change direction slightly (prevents accumulation)
+            if (Math.random() < 0.001) {
+                star.vx = (Math.random() - 0.5) * 0.05;
+                star.vy = (Math.random() - 0.5) * 0.05;
+            }
 
             // Wrap around
             if (star.x < 0) star.x = width;
