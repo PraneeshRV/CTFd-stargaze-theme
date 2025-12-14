@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block theme_header %}
+  {% if request.path != '/' and request.path != '/index' %}
+    {{ Configs.theme_header }}
+  {% endif %}
+{% endblock %}
+
+{% block navbar %}
+  {% if request.path != '/' and request.path != '/index' %}
+    {% include "components/navbar.html" %}
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  {% if request.path == '/' or request.path == '/index' %}
+    {{ content | safe }}
+  {% else %}
+    <div class="container">
+      {{ content | safe }}
+    </div>
+  {% endif %}
+{% endblock %}
+
+{% block scripts %}
+  {{ Assets.js("assets/js/page.js") }}
+{% endblock %}

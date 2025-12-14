@@ -1,0 +1,10 @@
+body {
+  cursor: url('/themes/stargaze/static/img/cursor_v2.png'), auto;
+}
+
+a,
+button,
+.btn,
+.cursor-pointer {
+  cursor: url('/themes/stargaze/static/img/cursor_v2.png'), pointer;
+}

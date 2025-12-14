@@ -1,0 +1,74 @@
+/* Table styles - Transparent for Stargaze theme
+-------------------------------------------------- */
+
+// Center text in table cells, except the first cell
+.table tr > :not(:first-child) {
+  text-align: center;
+}
+
+// Add some default spacing to table cells
+.table > tbody > tr > td {
+  padding: 0.8rem 1rem;
+}
+
+// Add some padding from the edge of table
+.table > thead > tr > :first-child {
+  padding-left: 1rem;
+}
+
+// Do not wrap text in table headers
+.table > thead > th {
+  white-space: nowrap;
+}
+
+// === TRANSPARENT TABLE STYLING FOR STARGAZE ===
+.table {
+  --bs-table-bg: transparent !important;
+  --bs-table-striped-bg: transparent !important;
+  --bs-table-hover-bg: rgba(204, 255, 0, 0.05) !important;
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+.table > thead {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.table > thead > tr {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.table > thead > tr > th {
+  background: transparent !important;
+  background-color: transparent !important;
+  border-bottom: 1px solid rgba(204, 255, 0, 0.2);
+}
+
+.table > tbody {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.table > tbody > tr {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.table > tbody > tr > td {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+  --bs-table-accent-bg: transparent !important;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.table-striped > tbody > tr:nth-of-type(even) > * {
+  --bs-table-accent-bg: transparent !important;
+  background: transparent !important;
+  background-color: transparent !important;
+}

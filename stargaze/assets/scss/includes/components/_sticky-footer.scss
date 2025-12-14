@@ -1,0 +1,25 @@
+/* Sticky footer styles using flexbox
+-------------------------------------------------- */
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.footer {
+  flex-shrink: 0;
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+  
+  /* Only visible at bottom of content */
+  background: transparent;
+}
