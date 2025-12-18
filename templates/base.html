@@ -651,16 +651,19 @@
 
 {% include "components/snackbar.html" %}
 
+{% if request.endpoint not in ['views.static_html', 'auth.login', 'auth.register'] %}
 <footer class="footer">
   <div class="container text-center">
-    <small class="text-muted d-block mb-1" style="font-size: 0.7rem; opacity: 0.6;">Theme by Praneesh R V</small>
-    <a href="https://ctfd.io" class="text-secondary">
-      <small class="text-muted">
-        {% trans %}Powered by CTFd{% endtrans %}
-      </small>
+    <a href="https://github.com/PraneeshRV/CTFd-stargaze-theme" target="_blank" class="text-muted" style="text-decoration: none;">
+      <small style="font-size: 0.65rem; opacity: 0.4;">Theme by Praneesh R V</small>
+    </a>
+    <span style="font-size: 0.6rem; opacity: 0.2; margin: 0 8px;">•</span>
+    <a href="https://ctfd.io" class="text-muted" style="text-decoration: none;">
+      <small style="font-size: 0.6rem; opacity: 0.35;">{% trans %}Powered by CTFd{% endtrans %}</small>
     </a>
   </div>
 </footer>
+{% endif %}
 
 {% include "components/notifications.html" %}
 

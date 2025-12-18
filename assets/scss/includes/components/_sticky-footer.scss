@@ -1,31 +1,25 @@
-/* Sticky footer styles
+/* Sticky footer styles using flexbox
 -------------------------------------------------- */
 html {
-  position: relative;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
   min-height: 100%;
 }
 
 main {
-  /* Margin bottom by footer height */
-  margin-bottom: 100px;
+  flex: 1 0 auto;
 }
 
 .footer {
-  position: absolute;
-
-  /* prevent scrollbars from showing on pages that don't use the full page height */
-  bottom: 1px;
-
+  flex-shrink: 0;
   width: 100%;
-
-  /* Set the fixed height of the footer here */
-  height: 60px;
-
-  /* Vertically center the text there */
-  line-height: 60px;
-
-  /* Avoid covering things */
-  z-index: -20;
-
-  /*background-color: #f5f5f5;*/
+  padding: 20px 0;
+  text-align: center;
+  
+  /* Only visible at bottom of content */
+  background: transparent;
 }
